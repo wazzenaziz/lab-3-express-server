@@ -33,17 +33,10 @@ npm run dev
 
 ## Run API Demo Tests
 
-Start server in one terminal, then run in another:
+Tests start a temporary server automatically:
 
 ```bash
 npm test
-```
-
-If port `3000` is already used on your machine:
-
-```bash
-PORT=3100 npm start
-API_PORT=3100 npm test
 ```
 
 ## Main Endpoints
