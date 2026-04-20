@@ -36,11 +36,11 @@ jobs:
 
       - name: Lint JavaScript (if ESLint available)
         run: |
-          if command -v npx >/dev/null 2>&1 && npx eslint --version >/dev/null 2>&1; then
-            echo "Running ESLint..."
+          if [ -f "eslint.config.js" ] || [ -f "eslint.config.mjs" ] || [ -f "eslint.config.cjs" ] || [ -f ".eslintrc" ] || [ -f ".eslintrc.js" ] || [ -f ".eslintrc.cjs" ] || [ -f ".eslintrc.json" ] || [ -f ".eslintrc.yml" ] || [ -f ".eslintrc.yaml" ]; then
+            echo "ESLint config found. Running ESLint..."
             npx eslint "**/*.js" --ext .js
           else
-            echo "ESLint not configured, skipping lint check"
+            echo "ESLint config not found, skipping lint check"
           fi
 
       - name: Check for TODO comments
